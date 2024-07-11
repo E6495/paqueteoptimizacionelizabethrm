@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Gráficas 2D de Funciones con y sin Restricciones &#8212; Algoritmos_optimizacioneli 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=12dfc556" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Método de Interval Halving Method para Encontrar un Mínimo Local" href="../univariable/metodoseliminacionderegiones/intervalhalving.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="graficas-2d-de-funciones-con-y-sin-restricciones">
+<span id="graficas"></span><h1>Gráficas 2D de Funciones con y sin Restricciones<a class="headerlink" href="#graficas-2d-de-funciones-con-y-sin-restricciones" title="Link to this heading">¶</a></h1>
+<p>Este archivo documenta las funciones <cite>grafica_2d_con_restricciones</cite>, <cite>grafica_2d_no_restricciones</cite> y <cite>plot_rangos_minimos</cite> que se utilizan para generar gráficas 2D de funciones con y sin restricciones, así como para graficar puntos mínimos para distintas precisiones.</p>
+<section id="grafica-2d-de-funcion-con-restricciones">
+<h2>Gráfica 2D de Función con Restricciones<a class="headerlink" href="#grafica-2d-de-funcion-con-restricciones" title="Link to this heading">¶</a></h2>
+</section>
+<section id="descripcion">
+<h2>Descripción<a class="headerlink" href="#descripcion" title="Link to this heading">¶</a></h2>
+<p>La función <cite>grafica_2d_con_restricciones</cite> genera una gráfica 2D de una función con restricciones para valores de x e y. Se utiliza una grilla de resolución especificada para evaluar la función en cada punto dentro del rango dado de x e y. Los puntos fuera de un valor de restricción específico se muestran como NaN (no un número) en la gráfica.</p>
+</section>
+<section id="parametros">
+<h2>Parámetros<a class="headerlink" href="#parametros" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><cite>func</cite> (callable): Función que devuelve el valor de la función en un punto dado.</p></li>
+<li><p><cite>x_range</cite> (tuple, opcional): Rango de valores de x para graficar (default=(-10, 10)).</p></li>
+<li><p><cite>y_range</cite> (tuple, opcional): Rango de valores de y para graficar (default=(-10, 10)).</p></li>
+<li><p><cite>resolution</cite> (int, opcional): Resolución de la grilla para la gráfica (default=400).</p></li>
+<li><p><cite>constraint_value</cite> (float, opcional): Valor de restricción para la función (default=1e6).</p></li>
+</ul>
+</section>
+<section id="grafica-2d-de-funcion-sin-restricciones">
+<h2>Gráfica 2D de Función sin Restricciones<a class="headerlink" href="#grafica-2d-de-funcion-sin-restricciones" title="Link to this heading">¶</a></h2>
+</section>
+<section id="id1">
+<h2>Descripción<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>La función <cite>grafica_2d_no_restricciones</cite> genera una gráfica 2D de una función sin restricciones explícitas para valores de x e y. Se utiliza una grilla de resolución especificada para evaluar la función en cada punto dentro de los límites dados de x e y.</p>
+</section>
+<section id="id2">
+<h2>Parámetros<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><cite>function</cite> (callable): Función que devuelve el valor de la función en un punto dado.</p></li>
+<li><p><cite>x_limits</cite> (tuple, opcional): Límites de valores de x para graficar (default=(-10, 10)).</p></li>
+<li><p><cite>y_limits</cite> (tuple, opcional): Límites de valores de y para graficar (default=(-10, 10)).</p></li>
+<li><p><cite>num_points</cite> (int, opcional): Número de puntos en cada dimensión para la gráfica (default=100).</p></li>
+</ul>
+</section>
+<section id="grafica-de-puntos-minimos-para-distintas-precisiones">
+<h2>Gráfica de Puntos Mínimos para Distintas Precisiones<a class="headerlink" href="#grafica-de-puntos-minimos-para-distintas-precisiones" title="Link to this heading">¶</a></h2>
+</section>
+<section id="id3">
+<h2>Descripción<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<p>La función <cite>plot_rangos_minimos</cite> grafica la función dada y los puntos mínimos encontrados para distintas precisiones utilizando un método de optimización específico.</p>
+</section>
+<section id="id4">
+<h2>Parámetros<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><cite>funcion</cite> (callable): Función objetivo que se desea minimizar.</p></li>
+<li><p><cite>a</cite> (float): Límite inferior del rango de búsqueda.</p></li>
+<li><p><cite>b</cite> (float): Límite superior del rango de búsqueda.</p></li>
+<li><p><cite>precisiones</cite> (list): Lista de precisiones para las cuales se ejecutará el método de optimización.</p></li>
+<li><p><cite>initial_guess</cite> (float): Valor inicial para el método de optimización.</p></li>
+<li><p><cite>metodo_optimizacion</cite> (callable): Función que realiza el método de optimización sobre la función dada.</p></li>
+</ul>
+</section>
+<section id="ejemplo-de-uso">
+<h2>Ejemplo de Uso<a class="headerlink" href="#ejemplo-de-uso" title="Link to this heading">¶</a></h2>
+<p>A continuación, se muestra un ejemplo básico de cómo usar las funciones documentadas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Definir una función con restricciones</span>
+<span class="k">def</span> <span class="nf">funcion_restriccion</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Generar gráfica con restricciones</span>
+<span class="n">grafica_2d_con_restricciones</span><span class="p">(</span><span class="n">funcion_restriccion</span><span class="p">)</span>
+
+<span class="c1"># Definir una función sin restricciones</span>
+<span class="k">def</span> <span class="nf">funcion_sin_restriccion</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Generar gráfica sin restricciones</span>
+<span class="n">grafica_2d_no_restricciones</span><span class="p">(</span><span class="n">funcion_sin_restriccion</span><span class="p">)</span>
+
+<span class="c1"># Ejemplo de uso de plot_rangos_minimos</span>
+<span class="k">def</span> <span class="nf">funcion_ejemplo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span>
+
+<span class="n">precisiones_ejemplo</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">]</span>
+<span class="n">plot_rangos_minimos</span><span class="p">(</span><span class="n">funcion_ejemplo</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">precisiones_ejemplo</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">interval_halving_method</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Algoritmos_optimizacioneli</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../funciones/funcionesobjetivo.html">Funciones de Optimización</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/metodosdirectos/colina.html">Algoritmo de Colina</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/metodosdirectos/hookejeeves.html">Método de Hooke-Jeeves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/metodosdirectos/neldermeadsimplex.html">Algoritmo de Mead (Nelder-Mead)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/metodosdirectos/randomwalk.html">Algoritmo Random Walk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/metodosdirectos/recocido.html">Método de Recocido Simulado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/metodosgradiente/cauchy.html">Método del Cauchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/metodosgradiente/gradienteconjugado.html">Método del Gradiente Conjugado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/metodosgradiente/newton.html">Método de Newton (Gradiente)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../univariable/metodosbasadosenladerivada/biseccion.html">Método de Bisección para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../univariable/metodosbasadosenladerivada/newton.html">Método de Newton-Raphson para Encontrar Raíces de Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../univariable/metodosbasadosenladerivada/secante.html">Método de la Secante para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../univariable/metodoseliminacionderegiones/bounding.html">Método de la Fase de Búsqueda para Encontrar Mínimos Locales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../univariable/metodoseliminacionderegiones/exhaustiva.html">Método de Búsqueda Exhaustiva para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../univariable/metodoseliminacionderegiones/fibonacci.html">Método de Búsqueda de Fibonacci para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../univariable/metodoseliminacionderegiones/golden.html">Método de Búsqueda Dorada para Encontrar un Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../univariable/metodoseliminacionderegiones/intervalhalving.html">Método de Interval Halving Method para Encontrar un Mínimo Local</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gráficas 2D de Funciones con y sin Restricciones</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#grafica-2d-de-funcion-con-restricciones">Gráfica 2D de Función con Restricciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#descripcion">Descripción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parametros">Parámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grafica-2d-de-funcion-sin-restricciones">Gráfica 2D de Función sin Restricciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Descripción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Parámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grafica-de-puntos-minimos-para-distintas-precisiones">Gráfica de Puntos Mínimos para Distintas Precisiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Descripción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Parámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejemplo-de-uso">Ejemplo de Uso</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../univariable/metodoseliminacionderegiones/intervalhalving.html" title="previous chapter">Método de Interval Halving Method para Encontrar un Mínimo Local</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, ElizabethRM.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/optimizacioneli/utils/graficas.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

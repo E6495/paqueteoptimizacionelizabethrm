@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Método de Bisección para Encontrar Intervalo de Mínimo Local &#8212; Algoritmos_optimizacioneli 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=12dfc556" />
+    <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Método de Newton-Raphson para Encontrar Raíces de Funciones" href="newton.html" />
+    <link rel="prev" title="Método de Newton (Gradiente)" href="../../multivariable/metodosgradiente/newton.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="metodo-de-biseccion-para-encontrar-intervalo-de-minimo-local">
+<span id="biseccion"></span><h1>Método de Bisección para Encontrar Intervalo de Mínimo Local<a class="headerlink" href="#metodo-de-biseccion-para-encontrar-intervalo-de-minimo-local" title="Link to this heading">¶</a></h1>
+<p>Este archivo documenta el método de bisección para encontrar un intervalo [x1, x2] que contiene un mínimo local de una función dada.</p>
+<section id="metodo-de-biseccion">
+<h2>Método de Bisección<a class="headerlink" href="#metodo-de-biseccion" title="Link to this heading">¶</a></h2>
+</section>
+<section id="descripcion">
+<h2>Descripción<a class="headerlink" href="#descripcion" title="Link to this heading">¶</a></h2>
+<p>La función <cite>bisection_method</cite> implementa el método de bisección para encontrar un intervalo [x1, x2] donde una función tiene un mínimo local. Utiliza la derivada primera calculada mediante el método de diferencias centrales para verificar las condiciones iniciales del método.</p>
+</section>
+<section id="parametros">
+<h2>Parámetros<a class="headerlink" href="#parametros" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><cite>funcion</cite> (callable): La función objetivo que se desea minimizar.</p></li>
+<li><p><cite>a</cite> (float): Límite inferior del intervalo inicial.</p></li>
+<li><p><cite>b</cite> (float): Límite superior del intervalo inicial.</p></li>
+<li><p><cite>epsilon</cite> (float): La tolerancia para la longitud del intervalo y el valor de la derivada.</p></li>
+<li><p><cite>delta_x</cite> (float): El pequeño incremento utilizado para calcular la derivada.</p></li>
+<li><p><cite>max_iteraciones</cite> (int, opcional): El número máximo de iteraciones permitidas (por defecto es 10000).</p></li>
+</ul>
+</section>
+<section id="retorno">
+<h2>Retorno<a class="headerlink" href="#retorno" title="Link to this heading">¶</a></h2>
+<p>La función retorna un tuple (x1, x2) que representa el intervalo [x1, x2] que contiene un mínimo local de la función.</p>
+</section>
+<section id="funciones-relacionadas">
+<h2>Funciones Relacionadas<a class="headerlink" href="#funciones-relacionadas" title="Link to this heading">¶</a></h2>
+<section id="funcion-central-difference-f-prime">
+<h3>Función <cite>central_difference_f_prime</cite><a class="headerlink" href="#funcion-central-difference-f-prime" title="Link to this heading">¶</a></h3>
+<p>La función <cite>central_difference_f_prime</cite> calcula la derivada primera de una función en un punto dado utilizando el método de diferencias centrales.</p>
+</section>
+<section id="id1">
+<h3>Parámetros<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><cite>f</cite> (callable): La función objetivo cuya derivada se quiere calcular.</p></li>
+<li><p><cite>x</cite> (float): El punto en el cual se desea calcular la derivada.</p></li>
+<li><p><cite>delta_x</cite> (float): El pequeño incremento alrededor de <cite>x</cite>.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Retorno<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>Retorna una aproximación de la derivada primera de la función en <cite>x</cite>.</p>
+</section>
+<section id="funcion-delta-x-func">
+<h3>Función <cite>delta_x_func</cite><a class="headerlink" href="#funcion-delta-x-func" title="Link to this heading">¶</a></h3>
+<p>La función <cite>delta_x_func</cite> determina el valor de delta_x en función de x.</p>
+</section>
+<section id="id3">
+<h3>Parámetros<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><cite>x</cite> (float): El punto en el cual se desea determinar delta_x.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Retorno<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>Retorna el valor de delta_x basado en x.</p>
+</section>
+</section>
+<section id="ejemplo-de-uso">
+<h2>Ejemplo de Uso<a class="headerlink" href="#ejemplo-de-uso" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">optimizacioneli.univariable</span> <span class="kn">import</span> <span class="n">bisection_method</span><span class="p">,</span> <span class="n">central_difference_f_prime</span><span class="p">,</span> <span class="n">delta_x_func</span>
+
+<span class="c1"># Definir una función de prueba</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Parámetros del método de bisección</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-5</span>
+<span class="n">delta_x</span> <span class="o">=</span> <span class="mf">1e-5</span>
+<span class="n">max_iteraciones</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="c1"># Aplicar el método de bisección</span>
+<span class="n">intervalo</span> <span class="o">=</span> <span class="n">bisection_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">delta_x</span><span class="p">,</span> <span class="n">max_iteraciones</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Intervalo que contiene el mínimo local:&quot;</span><span class="p">,</span> <span class="n">intervalo</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Algoritmos_optimizacioneli</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../funciones/funcionesobjetivo.html">Funciones de Optimización</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multivariable/metodosdirectos/colina.html">Algoritmo de Colina</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multivariable/metodosdirectos/hookejeeves.html">Método de Hooke-Jeeves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multivariable/metodosdirectos/neldermeadsimplex.html">Algoritmo de Mead (Nelder-Mead)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multivariable/metodosdirectos/randomwalk.html">Algoritmo Random Walk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multivariable/metodosdirectos/recocido.html">Método de Recocido Simulado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multivariable/metodosgradiente/cauchy.html">Método del Cauchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multivariable/metodosgradiente/gradienteconjugado.html">Método del Gradiente Conjugado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../multivariable/metodosgradiente/newton.html">Método de Newton (Gradiente)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Método de Bisección para Encontrar Intervalo de Mínimo Local</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#metodo-de-biseccion">Método de Bisección</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#descripcion">Descripción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parametros">Parámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#retorno">Retorno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#funciones-relacionadas">Funciones Relacionadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejemplo-de-uso">Ejemplo de Uso</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="newton.html">Método de Newton-Raphson para Encontrar Raíces de Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secante.html">Método de la Secante para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metodoseliminacionderegiones/bounding.html">Método de la Fase de Búsqueda para Encontrar Mínimos Locales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metodoseliminacionderegiones/exhaustiva.html">Método de Búsqueda Exhaustiva para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metodoseliminacionderegiones/fibonacci.html">Método de Búsqueda de Fibonacci para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metodoseliminacionderegiones/golden.html">Método de Búsqueda Dorada para Encontrar un Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metodoseliminacionderegiones/intervalhalving.html">Método de Interval Halving Method para Encontrar un Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/graficas.html">Gráficas 2D de Funciones con y sin Restricciones</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../../multivariable/metodosgradiente/newton.html" title="previous chapter">Método de Newton (Gradiente)</a></li>
+      <li>Next: <a href="newton.html" title="next chapter">Método de Newton-Raphson para Encontrar Raíces de Funciones</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, ElizabethRM.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../../_sources/optimizacioneli/univariable/metodosbasadosenladerivada/biseccion.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

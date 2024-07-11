@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Algoritmo Random Walk &#8212; Algoritmos_optimizacioneli 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=12dfc556" />
+    <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Método de Recocido Simulado" href="recocido.html" />
+    <link rel="prev" title="Algoritmo de Mead (Nelder-Mead)" href="neldermeadsimplex.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="algoritmo-random-walk">
+<span id="optimizacioneli-multivariable-random-walk"></span><h1>Algoritmo Random Walk<a class="headerlink" href="#algoritmo-random-walk" title="Link to this heading">¶</a></h1>
+<section id="funcion-random-walk">
+<h2>Función Random Walk<a class="headerlink" href="#funcion-random-walk" title="Link to this heading">¶</a></h2>
+<p>El algoritmo Random Walk es una técnica estocástica que genera pasos aleatorios para explorar el espacio de búsqueda y encontrar soluciones óptimas.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> (callable): Función objetivo que se desea minimizar.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x0</span></code> (list or numpy array): Punto de inicio del algoritmo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_iter</span></code> (int): Número máximo de iteraciones.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mu</span></code> (float): Media de la distribución normal para generar pasos aleatorios.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code> (float): Desviación estándar de la distribución normal para generar pasos aleatorios.</p></li>
+</ul>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">array</span></code>: La mejor solución encontrada que minimiza la función <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: Historial de puntos visitados durante la búsqueda.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">optimizacioneli.multivariable</span> <span class="kn">import</span> <span class="n">random_walk</span>
+
+<span class="c1"># Definir una función de prueba</span>
+<span class="k">def</span> <span class="nf">objective_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># Punto inicial y parámetros del algoritmo</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+<span class="n">max_iter</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># Aplicar el algoritmo de Random Walk</span>
+<span class="n">best_solution</span><span class="p">,</span> <span class="n">history</span> <span class="o">=</span> <span class="n">random_walk</span><span class="p">(</span><span class="n">objective_function</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mejor solución encontrada:&quot;</span><span class="p">,</span> <span class="n">best_solution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Algoritmos_optimizacioneli</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../funciones/funcionesobjetivo.html">Funciones de Optimización</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colina.html">Algoritmo de Colina</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hookejeeves.html">Método de Hooke-Jeeves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neldermeadsimplex.html">Algoritmo de Mead (Nelder-Mead)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Algoritmo Random Walk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#funcion-random-walk">Función Random Walk</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recocido.html">Método de Recocido Simulado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metodosgradiente/cauchy.html">Método del Cauchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metodosgradiente/gradienteconjugado.html">Método del Gradiente Conjugado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metodosgradiente/newton.html">Método de Newton (Gradiente)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../univariable/metodosbasadosenladerivada/biseccion.html">Método de Bisección para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../univariable/metodosbasadosenladerivada/newton.html">Método de Newton-Raphson para Encontrar Raíces de Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../univariable/metodosbasadosenladerivada/secante.html">Método de la Secante para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../univariable/metodoseliminacionderegiones/bounding.html">Método de la Fase de Búsqueda para Encontrar Mínimos Locales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../univariable/metodoseliminacionderegiones/exhaustiva.html">Método de Búsqueda Exhaustiva para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../univariable/metodoseliminacionderegiones/fibonacci.html">Método de Búsqueda de Fibonacci para Encontrar Intervalo de Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../univariable/metodoseliminacionderegiones/golden.html">Método de Búsqueda Dorada para Encontrar un Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../univariable/metodoseliminacionderegiones/intervalhalving.html">Método de Interval Halving Method para Encontrar un Mínimo Local</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/graficas.html">Gráficas 2D de Funciones con y sin Restricciones</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="neldermeadsimplex.html" title="previous chapter">Algoritmo de Mead (Nelder-Mead)</a></li>
+      <li>Next: <a href="recocido.html" title="next chapter">Método de Recocido Simulado</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, ElizabethRM.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../../_sources/optimizacioneli/multivariable/metodosdirectos/randomwalk.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
