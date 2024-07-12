@@ -10,25 +10,24 @@
    :maxdepth: 2
    :caption: Contents:
 
-   basepaqueteoptimizacionelizabethrm/funciones/funcionesobjetivo
-   basepaqueteoptimizacionelizabethrm/docs/_build/html/_sources/optimizacioneli/funciones/funcionesobjetivo.rst.txt"
-   basepaqueteoptimizacionelizabethrm/multivariable/metodosdirectos/colina
-   basepaqueteoptimizacionelizabethrm/multivariable/metodosdirectos/hookejeeves
-   basepaqueteoptimizacionelizabethrm/multivariable/metodosdirectos/neldermeadsimplex
-   basepaqueteoptimizacionelizabethrm/multivariable/metodosdirectos/randomwalk
-   basepaqueteoptimizacionelizabethrm/multivariable/metodosdirectos/recocido
-   basepaqueteoptimizacionelizabethrm/multivariable/metodosgradiente/cauchy
-   basepaqueteoptimizacionelizabethrm/multivariable/metodosgradiente/gradienteconjugado
-   basepaqueteoptimizacionelizabethrm/multivariable/metodosgradiente/newton
-   basepaqueteoptimizacionelizabethrm/univariable/metodosbasadosenladerivada/biseccion
-   basepaqueteoptimizacionelizabethrm/univariable/metodosbasadosenladerivada/newton
-   basepaqueteoptimizacionelizabethrm/univariable/metodosbasadosenladerivada/secante
-   basepaqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/bounding
-   basepaqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/exhaustiva
-   basepaqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/fibonacci
-   basepaqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/golden
-   basepaqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/intervalhalving
-   basepaqueteoptimizacionelizabethrm/utils/graficas
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/funciones/funcionesobjetivo
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/multivariable/metodosdirectos/colina
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/multivariable/metodosdirectos/hookejeeves
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/multivariable/metodosdirectos/neldermeadsimplex
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/multivariable/metodosdirectos/randomwalk
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/multivariable/metodosdirectos/recocido
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/multivariable/metodosgradiente/cauchy
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/multivariable/metodosgradiente/gradienteconjugado
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/multivariable/metodosgradiente/newton
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/univariable/metodosbasadosenladerivada/biseccion
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/univariable/metodosbasadosenladerivada/newton
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/univariable/metodosbasadosenladerivada/secante
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/bounding
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/exhaustiva
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/fibonacci
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/golden
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/intervalhalving
+   basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/utils/graficas
 
 Indices y tablas
 ==================
