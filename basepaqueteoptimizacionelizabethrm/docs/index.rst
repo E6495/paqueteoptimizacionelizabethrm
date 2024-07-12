@@ -11,6 +11,7 @@
    :caption: Contents:
 
    basepaqueteoptimizacionelizabethrm/funciones/funcionesobjetivo
+   basepaqueteoptimizacionelizabethrm/docs/_build/html/_sources/optimizacioneli/funciones/funcionesobjetivo.rst.txt"
    basepaqueteoptimizacionelizabethrm/multivariable/metodosdirectos/colina
    basepaqueteoptimizacionelizabethrm/multivariable/metodosdirectos/hookejeeves
    basepaqueteoptimizacionelizabethrm/multivariable/metodosdirectos/neldermeadsimplex
