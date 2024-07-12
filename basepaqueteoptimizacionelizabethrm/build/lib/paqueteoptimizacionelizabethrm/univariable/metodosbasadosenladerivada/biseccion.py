@@ -45,10 +45,10 @@ def bisection_method(funcion, a, b, epsilon, delta_x, max_iteraciones=10000):
     x2 = b  # Inicialización del límite superior del intervalo
     
     # Verificación de las condiciones iniciales
-    if (central_difference_f_prime(funcion, a, delta_x) < 0) and (central_difference_f_prime(funcion, b, delta_x) > 0):
-        epsilon = epsilon  # La función cumple con la condición requerida
-    else:
-        raise ValueError("La función no cumple con la condición f'(a) < 0 y f'(b) > 0")
+    #if (central_difference_f_prime(funcion, a, delta_x) < 0) and (central_difference_f_prime(funcion, b, delta_x) > 0):
+    #    epsilon = epsilon  # La función cumple con la condición requerida
+    #else:
+    #    raise ValueError("La función no cumple con la condición f'(a) < 0 y f'(b) > 0")
     
     iteraciones = 0  # Inicialización del contador de iteraciones
 

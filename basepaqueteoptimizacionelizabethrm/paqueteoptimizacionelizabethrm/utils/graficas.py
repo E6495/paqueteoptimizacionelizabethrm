@@ -1,6 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from paqueteoptimizacionelizabethrm.univariable.metodosbasadosenladerivada import newton_raphson_method, secant_method, bisection_method
+from paqueteoptimizacionelizabethrm.univariable.metodoseliminacionderegiones import fibonacci_search, bounding_phase_method, exhaustive_search_method, interval_halving_method, busquedaDorada
+import matplotlib.pyplot as plt
+import numpy as np
+
 def grafica_2d_con_restricciones(func, x_range=(-10, 10), y_range=(-10, 10), resolution=400, constraint_value=1e6):
     """
     Genera una gráfica 2D de una función con restricciones para valores de x e y.
@@ -52,7 +57,10 @@ def grafica_2d_no_restricciones(function, x_limits=(-10, 10), y_limits=(-10, 10)
     plt.grid(True)
     plt.show()
 
-def plot_rangos_minimos(funcion, a, b, precisiones, initial_guess, metodo_optimizacion):
+def delta_x_func(x):
+    return 0.01 * abs(x) if abs(x) > 0.01 else 0.0001
+
+def plot_rangos_minimos(funcion, a, b, precisiones, initial_guess, nombre, n, delta):
     """
     Grafica la función y los puntos mínimos encontrados para distintas precisiones de un método de optimización dado.
 
@@ -62,18 +70,41 @@ def plot_rangos_minimos(funcion, a, b, precisiones, initial_guess, metodo_optimi
     b (float): Límite superior del rango de búsqueda.
     precisiones (list): Lista de precisiones para las cuales se ejecutará el método de optimización.
     initial_guess (float): Valor inicial para el método de optimización.
-    metodo_optimizacion (callable): Función que realiza el método de optimización sobre la función dada.
+    nombre (str): Nombre del método de optimización a utilizar.
+    n (int): Número de iteraciones para el método Fibonacci.
+    delta (float): Parámetro delta para métodos basados en la derivada.
     """
-    x_valores = np.linspace(a, b, 1000)
+    x_valores = np.linspace(a, b, 100)
     y_valores = funcion(x_valores)
 
     plt.plot(x_valores, y_valores, label='Función')
 
     for precision in precisiones:
-        rango_minimo = metodo_optimizacion(funcion, initial_guess, precision)
-        if rango_minimo:
+
+        if nombre == "secante":
+            rango_minimo = secant_method(funcion, a, b, precision, delta_x_func(2))
+        elif nombre == "bounding":
+            rango_minimo = bounding_phase_method(funcion, initial_guess, delta_x_func(1))
+        elif nombre == "exhaustiva":
+            rango_minimo = exhaustive_search_method(a, b, precision, funcion)
+        elif nombre == "fibonacci":
+            rango_minimo = fibonacci_search(funcion, a, b, n)
+        elif nombre == "bisection":
+            rango_minimo = bisection_method(funcion, a, b, precision, delta)
+        elif nombre == "newton":
+            rango_minimo = newton_raphson_method(funcion, initial_guess, delta_x_funcion=lambda x: delta_x_func(x), epsilon=precision)
+        elif nombre == "golden":
+            rango_minimo = busquedaDorada(funcion, precision, a, b)
+        elif nombre == "interval":
+            rango_minimo = interval_halving_method(a, b, funcion, precision)
+        else:
+            raise ValueError(f"Método de optimización '{nombre}' no reconocido")
+
+        if isinstance(rango_minimo, tuple):  # Verificar si rango_minimo es un iterable (tuple)
             min_x, max_x = rango_minimo
             plt.scatter([min_x, max_x], [funcion(min_x), funcion(max_x)], label=f'Rango mínimo ({precision})')
+        elif isinstance(rango_minimo, float):
+            plt.scatter([rango_minimo], [funcion(rango_minimo)], label=f'Rango mínimo ({precision})')
 
     plt.legend()
     plt.xlabel('x')
