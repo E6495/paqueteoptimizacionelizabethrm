@@ -6,6 +6,11 @@
 ¡Bienvenido a la documentación de basepaqueteoptimizacionelizabethrm!
 =====================================================
 
+De click aquí:
+--------------
+* :ref:`https://optimizacioneli.readthedocs.io/en/latest/`
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -29,8 +34,3 @@
    basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/univariable/metodoseliminacionderegiones/intervalhalving
    basepaqueteoptimizacionelizabethrm/paqueteoptimizacionelizabethrm/utils/graficas
 
-Indices y tablas
-==================
-
-* :ref:`genindex`
-* :ref:`search`
