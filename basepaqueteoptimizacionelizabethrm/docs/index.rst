@@ -6,9 +6,9 @@
 ¡Bienvenido a la documentación de basepaqueteoptimizacionelizabethrm!
 =====================================================
 
-De click aquí:
---------------
-* :ref:`https://optimizacioneli.readthedocs.io/en/latest/`
+
+De click `aquí <https://optimizacioneli.readthedocs.io/en/latest/>`_.
+--------------------------------------------------
 
 
 .. toctree::
